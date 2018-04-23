@@ -1,3 +1,8 @@
+/*CSE 205: 17566 / M W 4:35-5:50
+Assignment: Assignment #6
+Author(s): Humdaan Mustafa & 10042025
+Description: This file contains The finder class which handles the actual autocompleting functions
+*/
 import java.util.ArrayList;
 
 public class Finder{
@@ -27,9 +32,20 @@ public class Finder{
         this.options = options;
     }
     public void getOptions(){
-        for(int i =0;i<options.size();i++){
-            System.out.println(options.get(i));
+        int size = options.size();
+        this.sortOptions(options,size);
+        int numOptionsDisplay=5;
+        int count=0;
+        if(size<numOptionsDisplay){
+            numOptionsDisplay=size;
         }
+        //displays options with number of option
+        while(count!=numOptionsDisplay){
+            int num=count+1;
+            System.out.println(num+". "+options.get(count));
+            count++;
+        }
+
     }
     // finds instances of unfinished word in the whole list and adds them into options
     public void findInstances(){
@@ -46,9 +62,27 @@ public class Finder{
         }
         setOptions(options);
     }
+    //sorting algorithm to sort the options by biggest to smallest length
+    public void sortOptions(ArrayList<String> options,int size){
 
-    public void sortOptions(Word[] options){
-        // could sort them alphabetically?
+        if( size==1){
+            return;
+        }
+        for (int i=0; i<size-1; i++){
+            if (options.get(i).length() < options.get(i+1).length()){
+                swap(options,i,i+1);
+            }
+        }
+        // Largest element is fixed, recur for remaining array
+        sortOptions(options, size-1);
+
+    }
+    //helper method for bubble sort of options
+    public void swap(ArrayList<String> options,int a, int b){
+        String temp = options.get(a);
+        String replace = options.get(b);
+        options.set(a,replace);
+        options.set(b,temp);
     }
 
 

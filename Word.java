@@ -1,3 +1,8 @@
+/*CSE 205: 17566 / M W 4:35-5:50
+Assignment: Assignment #6
+Author(s): Humdaan Mustafa & 10042025
+Description: This file contains word object class.
+*/
 public class Word{
     //initial private variables used in this class
     private int rank;

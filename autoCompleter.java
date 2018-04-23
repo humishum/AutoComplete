@@ -1,3 +1,8 @@
+/*CSE 205: 17566 / M W 4:35-5:50
+Assignment: Assignment #6
+Author(s): Humdaan Mustafa & 10042025
+Description: This file contains The Autocompleter java file which is the backbone of the program.
+*/
 import java.lang.*;
 import java.util.ArrayList;
 import java.util.Scanner;
