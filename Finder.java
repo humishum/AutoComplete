@@ -31,6 +31,11 @@ public class Finder{
     public void setOptions(ArrayList<String> options){
         this.options = options;
     }
+    public ArrayList<String> getOptionsArrayList(){
+        int size = options.size();
+        this.sortOptions(options,size);
+        return this.options;
+    }
     public void getOptions(){
         int size = options.size();
         this.sortOptions(options,size);

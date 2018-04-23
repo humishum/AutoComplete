@@ -21,22 +21,26 @@ public class autoCompleter {
         words.add(new Word (numWords,sc.nextLine()));
         numWords++;
         }
-        Scanner console =  new Scanner(System.in);
-        String sentence = console.nextLine();
+        Scanner consoleInput =  new Scanner(System.in);
+        String sentence="";
+        starter(consoleInput,words,sentence);
+
+    }
+    //Recursively runs starter , which starts the process of taking in input. Takes in sentence, checks if autocomplete is
+    //necessary, and then takes user request for autocomplete, and then outputs everything the user has inputted so far
+    public static void starter(Scanner consoleInput,ArrayList<Word> words,String sentence){
+        consoleInput =  new Scanner(System.in);
+        sentence = sentence+consoleInput.nextLine();
         String lastWord = sentence.substring(sentence.lastIndexOf(" ")+1);
 
         Finder find = new Finder(lastWord,words);
         find.findInstances();
         find.getOptions();
-    /*    for(int i=0;i<numWords;i++){
-            System.out.println(words.get(i).toString());
-        }*/
-        /*Word[] words= new Word[numWords];
-
-        for(int i=0;i<numWords;i++){
-            String =sc.hasNe
-            words[i]= new Word(i,word);
-        }*/
+        Selector select = new Selector(sentence,find.getOptionsArrayList());
+        select.getInput();
+        sentence=select.getfinalSentence()+" ";
+        System.out.println(sentence);
+        starter(consoleInput,words,sentence);
     }
 
 }
