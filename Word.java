@@ -15,7 +15,7 @@ public class Word{
         return this.rank;
     }
     public void setWord(String word){
-        this.word=word;
+        this.word = word;
     }
     public String getWord(){
             return this.word;
@@ -23,13 +23,13 @@ public class Word{
 
     // Initializes a term with the given query string and weight.
     public Word(int rank, String word){
-        this.rank=rank;
-        this.word=word;
+        this.rank = rank;
+        this.word = word;
     }
     //toString method
     public String toString(){
         int ranko = this.getRank();
         String wordo = this.getWord();
-        return ranko +" " +wordo;
+        return ranko + " " + wordo;
     }
 }

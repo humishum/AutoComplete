@@ -32,7 +32,7 @@ public class Selector{
         int input=console.nextInt();
         if(input<=this.getOptions().size() && input > 0 ){
             //if input is valid call the replace method
-            replace(this.getSentence(),input);
+            replace(this.getSentence(), input);
         }else{
             //restart method
             System.out.println("Please input a valid option.");
@@ -52,10 +52,10 @@ public class Selector{
         String finalSentence;
         if(Sentence.contains(" ")){
             String firstPart = Sentence.substring(0, Sentence.lastIndexOf(" "));
-            finalSentence = firstPart+" "+this.getOptions().get(input-1);
+            finalSentence = firstPart + " " + this.getOptions().get(input-1);
         }
         else{
-             finalSentence= options.get(input-1);
+             finalSentence= options.get(input - 1);
         }
         this.setfinalSentence(finalSentence);
     }

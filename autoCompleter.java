@@ -14,7 +14,7 @@ public class autoCompleter {
         //initial scanner and file objects
         File file =new File("listOfWords.txt");
         Scanner sc = new Scanner(file);
-        int numWords=0;
+        int numWords = 0;
         ArrayList<Word> words = new ArrayList<Word>();
         while (sc.hasNextLine()){
         //System.out.println(sc.nextLine());
@@ -22,7 +22,7 @@ public class autoCompleter {
         numWords++;
         }
         Scanner consoleInput =  new Scanner(System.in);
-        String sentence="";
+        String sentence = "";
         starter(consoleInput,words,sentence);
 
     }
@@ -30,16 +30,18 @@ public class autoCompleter {
     //necessary, and then takes user request for autocomplete, and then outputs everything the user has inputted so far
     public static void starter(Scanner consoleInput,ArrayList<Word> words,String sentence){
         consoleInput =  new Scanner(System.in);
-        sentence = sentence+consoleInput.nextLine();
-        String lastWord = sentence.substring(sentence.lastIndexOf(" ")+1);
+        sentence = sentence + consoleInput.nextLine();
+        String lastWord = sentence.substring(sentence.lastIndexOf(" ") + 1);
 
         Finder find = new Finder(lastWord,words);
         find.findInstances();
         find.getOptions();
+        if(find.getOptionsArrayList().size()!= 0){
         Selector select = new Selector(sentence,find.getOptionsArrayList());
         select.getInput();
-        sentence=select.getfinalSentence()+" ";
+        sentence=select.getfinalSentence() + " ";
         System.out.println(sentence);
+        }
         starter(consoleInput,words,sentence);
     }
 
